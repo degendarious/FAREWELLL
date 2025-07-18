@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Coming Soon</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+    #countdown { font-size: 2em; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Coming Soon!</h1>
+  <div id="countdown">Yükleniyor…</div>
+  <script>
+    // Yayın tarihi: 27 Ağustos 2025, 09:00 (Europe/Istanbul)
+    const release = new Date('2025-08-27T09:00:00+03:00');
+    const destUrl = 'https://ayhandemir.my.canva.site/soft-pink-modern-e-book-a4-document/';
+    function tick() {
+      const now = new Date();
+      const diff = release - now;
+      if (diff <= 0) {
+        window.location.replace(destUrl);
+      } else {
+        const d = Math.floor(diff/1000/60/60/24);
+        const h = Math.floor(diff/1000/60/60) % 24;
+        const m = Math.floor(diff/1000/60) % 60;
+        const s = Math.floor(diff/1000) % 60;
+        document.getElementById('countdown').textContent =
+          `${d} gün ${h} saat ${m} dk ${s} sn`;
+      }
+    }
+    setInterval(tick, 1000);
+    tick();
+  </script>
+</body>
+</html>
